@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Price Update</title>
+</head>
+<body>
+    <div id="price"></div>
+
+    <script>
+        window.onload = function() {
+            var xhttp = new XMLHttpRequest();
+            xhttp.open("GET", "get_price.php?id=108", true);
+            xhttp.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                    var response = JSON.parse(this.responseText);
+                    if (response.price) {
+                        document.getElementById("price").innerHTML = response.price;
+                    } else {
+                        document.getElementById("price").innerHTML = response.error;
+                    }
+                }
+            };
+            xhttp.send();
+        };
+    </script>
+</body>
+</html>
