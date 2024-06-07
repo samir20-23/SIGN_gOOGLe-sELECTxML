@@ -1,6 +1,16 @@
+
+// #####
+
+
+
 let submit = document.getElementById("submit");
 
 let inputs = document.querySelectorAll("input");
+
+
+
+
+
 
 //errors elements
 let erremail = document.getElementById("erremail");
@@ -22,17 +32,16 @@ let loader =document.querySelector(".loader");
 //add sing up
     let x =0;
 submit.addEventListener("click", function () {
-//  
 
-  
-// 
   let request = new XMLHttpRequest();
   request.open("POST", "log-in.php");
   request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
   request.send(
     
       "email=" +
-      email.value + 
+      email.value +
+      "&phone="+
+      phone.value+
       "&password=" +
       password.value 
   );
@@ -75,7 +84,7 @@ submit.addEventListener("click", function () {
     else if (response == "pasworddb") {
   loader.style.display="none";
       clear();
-      errpassword.innerHTML = "Invalid email address!";
+      errpassword.innerHTML = "Invalid password !";
           x++;
       if( x >= 2){
         let linkforgot = document.getElementById("linkforgot");
@@ -107,9 +116,9 @@ submit.addEventListener("click", function () {
       iconVerified.id="iconVerified";
       verified.appendChild(iconVerified);
 
-      
+      setTimeout(function () {
         window.location.replace("DASHBORD/DASHBORD.php");
-   
+    }, 990);
  
     }
   }; //onload
