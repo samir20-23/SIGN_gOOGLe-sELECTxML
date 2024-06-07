@@ -9,42 +9,94 @@
     />
     <link rel="stylesheet" href="css/logs.css">
     <title>Document</title>
+    <style>
+         
+    </style>
   </head>
-  <body> 
+  <body>
+    <div id="to">
+      <div class="r_1">
+        <div class="r_2">
+          <div class="r_3">
+           <div class="r_4">
+             <div class="r_5">
+               <div class="r_6">
+                 <div id="content">
+              
         <div id="form">
           <img src="imgs/Astronaut with space shuttle.gif" class="gif" />
           <h3>Log-In</h3>
           <div id="verified"></div>
 
-          <h5>email or number Phone:</h5>
-          <select id="countryCode">
-            <option value="+1">United States (+1)</option>
-            <option value="+44">United Kingdom (+44)</option>
-            <option value="+91">India (+91)</option>
-            <option value="+212">Morocco (+212)</option>
-            <option value="+33">France (+33)</option>
-            <option value="+81">Japan (+81)</option>
-            <!-- Add more country codes as needed -->
+          <h5 id="emailOrphoneH5">email :</h5>
+          <select name="selection" id="selection">
+            <option value="email">Email</option>
+            <option value="phone">Phone</option>
           </select>
-            <input type="text" name="email" placeholder="email or number Phone " id="email" />
+           <div id="inputsEmailORphone"> <input type="text" name="email" placeholder="email" id="email" > <input type="text" name="phone" placeholder="phone" id="phone" /></div>
                       <span class="errs" id="erremail"></span>
- 
+                  
+           
+
+
           <h5>Password :</h5>
           <div class="eyes">
             <i class="fa fa-eye-slash" aria-hidden="true" id="eyeIcon1" onclick="eye1()" ></i>
             <input type="text" name="password" placeholder="password" id="password" />
-          </div>  
+          </div>
                       <span class="errs" id="errpassword"></span>
 
                       <div class="loaderto">
                         <div class="loader"></div>
                         </div>      
-            <a  id="linksingup"></a>
+            <a href="sing-Up.html" id="linksingup">sing-Up</a>
             <a  id="linkforgot"></a>
             <button type="submit" name="submit" id="submit">Log in</button>
         </div>
-        
+          </div>
+              </div>
+              </div>
+              </div>
+              </div>
+              </div>
+              </div>
+              </div>
         <script src="log-in-error.js"></script>
         <script src="js/script.js"></script>
+        
+        <script>
+let selection = document.getElementById("selection");
+let inputsEmailORphone = document.getElementById("inputsEmailORphone");
+    inputsEmailORphone.style.display="flex";
+function emailphone(){
+if(selection.value == "email"){
+    document.getElementById("email").style.zIndex="3";
+    document.getElementById("email").style.opacity="10";
+
+    document.getElementById("phone").style.zIndex="-1";
+    document.getElementById("phone").style.opacity="0";
+    document.getElementById("phone").value="";
+
+
+    inputsEmailORphone.style.flexDirection="column";
+
+   }else{
+    document.getElementById("email").style.zIndex="-1";
+    document.getElementById("email").style.opacity="0";
+    document.getElementById("email").value="";
+
+
+    document.getElementById("phone").style.zIndex="3";
+    document.getElementById("phone").style.opacity="10";
+
+
+    inputsEmailORphone.style.flexDirection="column-reverse";
+
+
+   }}
+   emailphone();
+selection.addEventListener("input", emailphone)
+
+        </script>
   </body>
 </html>
