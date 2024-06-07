@@ -15,6 +15,7 @@ let loader =document.querySelector(".loader");
  //Element
   let username = document.getElementById("username");
   let email = document.getElementById("email");
+  let countryCode = document.getElementById('countryCode')
   let phone = document.getElementById("phone");
   let password = document.getElementById("password");
   let cpassword = document.getElementById("cpassword");
@@ -31,10 +32,8 @@ submit.addEventListener("click", function () {
  
 //  
 
-const phoneNumber = phone.value;
-const countryCode = document.getElementById('countryCode').value;
-let fullPhoneNumber = `${countryCode}${phoneNumber}`;
-// 
+ 
+// countryCodeempty
 
   let request = new XMLHttpRequest();
   request.open("POST", "sing-Up.php");
@@ -45,7 +44,9 @@ let fullPhoneNumber = `${countryCode}${phoneNumber}`;
       "&email=" +
       email.value +
       "&phone="+
-      fullPhoneNumber+
+      phone.value+
+      "&countryCode="+
+      countryCode.value+
       "&password=" +
       password.value +
       "&cpassword=" +
@@ -78,6 +79,16 @@ let fullPhoneNumber = `${countryCode}${phoneNumber}`;
       clear();
       aready.innerHTML = "email or number Phone is   Already exists <a href='log-in.html'>log-In</a> !";
     } 
+    // Codeempty
+    else if (response.trim().toLowerCase() == "countrycodeempty") {
+      loader.style.display="none";
+      clear();
+      setTimeout
+      countryCode.style.background = "#ff000073";
+      setTimeout(()=>{
+      countryCode.style.background = "none";
+      }, 800);
+    }
     // phone
     else if (response.trim().toLowerCase() == "phoneempty") {
       loader.style.display="none";
